@@ -1,10 +1,12 @@
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        n = len(nums)
+        mpp = {}
+        for i in range(len(nums)):
+            need = target - nums[i]
+            if need in mpp:
+                return [mpp[need],i]
 
-        for i in range(n):
-            for j in range(i+1,n):
-                if nums[i] + nums[j] == target :
-                    return [i,j]
+            mpp[nums[i]] = i 
 
         return []
+
